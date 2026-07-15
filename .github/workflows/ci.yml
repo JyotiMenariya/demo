@@ -1,13 +1,14 @@
 #what the workflow is called
 name: CI
 #WHEN it runs
-on: build
+on: test
 #WHAT it does
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo "Build started for $GITHUB_SHA"
-      - run: ls -la
+      - uses: actions/setup-node@v4
+      - run: npm install
+      - run: npm test
 
