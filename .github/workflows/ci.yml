@@ -1,7 +1,7 @@
 #what the workflow is called
 name: CI
 #WHEN it runs
-on: build
+on: push
 #WHAT it does
 jobs:
   test:
