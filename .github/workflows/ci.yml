@@ -4,21 +4,12 @@ on:
   push:
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Lint Step
-        run: echo "Lint step running"
-
   test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Test Step
-        run: echo "Test step running"
-
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
+    - run: echo "Running tests"
+  deploy:
+    needs: test
+    runs-on: ubuntu-lateststeps:
+      - run: echo "Deploying (only if test passed)"
