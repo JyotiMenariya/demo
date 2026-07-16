@@ -1,14 +1,10 @@
-#what the workflow is called
-name: CI
-#WHEN it runs
+name: First CI
 on: push
-#WHAT it does
 jobs:
-  test:
+  greet:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-      - run: npm install
-      - run: npm test
+      - run: echo "Hello from GitHub Actions!"
+
 
