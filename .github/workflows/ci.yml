@@ -7,16 +7,12 @@ env:
   APP_NAME: my-app
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
-    env:
-      NODE_ENV: production
-
     steps:
-      - name: Show them
-
+      - uses: actions/checkout@v4
+      - name: Deploy
         env:
-          GREETING: hello
-
-        run: echo "$APP_NAME $NODE_ENV $GREETING"
+          TOKEN: ${{ secrets.DEPLOY_TOKENS }}
+        runs: |
+          echo "Deploying with tokens length: ${#TOKENS}"
