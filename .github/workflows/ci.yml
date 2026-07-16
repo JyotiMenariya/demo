@@ -1,16 +1,22 @@
-name: CI
+name: Test and Deploy
 
 on:
   push:
 
 jobs:
   test:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v4
-    - run: echo "Running tests"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Tests
+        run: echo "Running tests"
+
   deploy:
     needs: test
     runs-on: ubuntu-latest
+
     steps:
-      - run: echo "Deploying (only if test passed)"
+      - name: Deploy
+        run: echo "Deploying (only if test passed)"
