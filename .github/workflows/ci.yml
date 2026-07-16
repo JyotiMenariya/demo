@@ -1,15 +1,24 @@
-name: First CI
+name: CI
 
-on: push
+on:
+  push:
 
 jobs:
-  greet:
+  lint:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
-      - name: Show the commit
-        run: echo "Commit: $GITHUB_SHA"
+      - name: Lint Step
+        run: echo "Lint step running"
 
-      - name: List the files
-        run: ls -la
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Test Step
+        run: echo "Test step running"
+
