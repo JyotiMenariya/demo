@@ -12,7 +12,10 @@ jobs:
   deploy:
     needs: test
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    environment: production
     steps:
       - uses: actions/checkout@v4
-      - run: echo "Deploying, beacuse this is main"
+      - name: Deploy
+        env:
+          TOKEN: ${{ secrets.PRO_SEC }}
+        run: echo "Deploying, beacuse this is main"
